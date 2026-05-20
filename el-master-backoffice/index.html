@@ -1,0 +1,10 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#191919"><title>EL Master: Trading Club VIP</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="css/styles.css"><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script></head><body>
+<div id="installBanner" class="install-banner"><b>Instalar PWA</b><span>Acceso rápido al backoffice.</span><button id="btnInstall">Instalar</button><button id="btnCloseInstall">×</button></div>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar"><button class="brand" id="toggleSidebar" title="Contraer menú"><span class="logo">↗</span><span><b>EL MASTER</b><small>TRADING CLUB VIP</small></span></button><nav id="menu"></nav><div class="side-card"><b>Sesión activa</b><p id="sideUser">SuperAdmin</p><span class="pulse"></span> Sistema online</div></aside>
+  <main class="main">
+    <header class="topbar"><div><h1 id="pageTitle">Resumen general</h1><p>Gestión segura de socios inversores, portafolios, rentabilidad y operaciones.</p></div><div class="actions"><button id="themeBtn" class="iconbtn" title="Tema"><span id="themeIcon"></span></button><button id="fullBtn" class="iconbtn" title="Pantalla completa">⛶</button><div class="notify"><button class="iconbtn">🔔<em id="notifyCount">5</em></button><div class="notify-pop" id="notifyPop"></div></div><label class="avatar"><img id="avatarImg" src="assets/profile.svg"><input id="avatarInput" type="file" accept="image/*"></label><button id="logoutBtn" class="logout">Salir</button></div></header>
+    <section class="content" id="content"></section>
+  </main>
+</div>
+<script type="module" src="js/auth.js"></script><script type="module" src="js/app.js"></script></body></html>

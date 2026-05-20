@@ -1,0 +1,10 @@
+CREATE TABLE roles (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(60) UNIQUE NOT NULL);
+CREATE TABLE permissions (id INT AUTO_INCREMENT PRIMARY KEY, code VARCHAR(100) UNIQUE NOT NULL, description VARCHAR(255));
+CREATE TABLE role_permissions (role_id INT, permission_id INT, PRIMARY KEY(role_id, permission_id));
+CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, public_id VARCHAR(32) UNIQUE NOT NULL, full_name VARCHAR(120), email VARCHAR(160) UNIQUE, password_hash VARCHAR(255), role_id INT, kyc_status ENUM('pendiente','aprobado','rechazado') DEFAULT 'pendiente', created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE portfolios (id INT AUTO_INCREMENT PRIMARY KEY, user_id INT, capital DECIMAL(14,2), profit DECIMAL(14,2), fund_percent DECIMAL(6,2));
+CREATE TABLE operations (id INT AUTO_INCREMENT PRIMARY KEY, ticket VARCHAR(20), asset VARCHAR(30), side ENUM('LONG','SHORT'), amount DECIMAL(14,2), result DECIMAL(14,2), commission DECIMAL(14,2), status VARCHAR(30), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE withdrawals (id INT AUTO_INCREMENT PRIMARY KEY, ticket VARCHAR(20), user_id INT, amount DECIMAL(14,2), account_mask VARCHAR(80), status VARCHAR(30), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE audit_log (id INT AUTO_INCREMENT PRIMARY KEY, actor_id INT, action VARCHAR(255), ip_hash VARCHAR(255), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+INSERT INTO roles(name) VALUES ('SuperAdmin'),('Admin'),('Analista'),('Cliente');
+INSERT INTO permissions(code,description) VALUES ('roles.crear','Crear perfiles'),('permisos.editar','Gestionar permisos'),('clientes.ver','Ver clientes'),('operaciones.crear','Abrir operaciones'),('retiros.aprobar','Aprobar retiros'),('auditoria.ver','Ver auditoría');
